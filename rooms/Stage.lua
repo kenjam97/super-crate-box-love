@@ -5,7 +5,6 @@ function Stage:init()
     self.area:addPhysicsWorld()
     self.main_canvas = love.graphics.newCanvas(gw, gh)
 
-    -- Add walls
     -- Left wall
     self.area:addGameObject("Platform", 0, 0, {
         w = 10,
@@ -17,7 +16,6 @@ function Stage:init()
         h = gh
     })
 
-    -- Add platforms according to the layout
     -- Top split platforms
     self.area:addGameObject("Platform", 0, 0, {
         w = gw * 0.35,
@@ -60,7 +58,6 @@ function Stage:init()
         h = 10
     })
 
-    -- Add player last so it appears on top
     self.player = self.area:addGameObject("Player", gw / 2, gh / 2)
     input:bind('f3', function()
         self.player.dead = true
@@ -86,7 +83,7 @@ function Stage:draw()
     camera:detach()
     love.graphics.setCanvas()
 
-    love.graphics.setColor(1, 1, 1, 1) -- Changed from 255,255,255,255 to normalized colors (0-1)
+    love.graphics.setColor(1, 1, 1, 1)
     love.graphics.setBlendMode("alpha", "premultiplied")
     love.graphics.draw(self.main_canvas, 0, 0, 0, sx, sy)
     love.graphics.setBlendMode("alpha")
