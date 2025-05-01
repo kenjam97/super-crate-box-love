@@ -59,6 +59,7 @@ function Stage:init()
     })
 
     self.player = self.area:addGameObject("Player", gw / 2, gh / 2)
+
     input:bind('f3', function()
         self.player.dead = true
     end)
@@ -87,4 +88,9 @@ function Stage:draw()
     love.graphics.setBlendMode("alpha", "premultiplied")
     love.graphics.draw(self.main_canvas, 0, 0, 0, sx, sy)
     love.graphics.setBlendMode("alpha")
+end
+
+function Stage:destroy()
+    self.area:destroy()
+    self.area = nil
 end

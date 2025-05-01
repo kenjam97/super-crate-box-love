@@ -16,8 +16,17 @@ function GameObject:init(area, x, y, opts)
 end
 
 function GameObject:update(dt)
-    if self.timer then self.timer:update(dt) end
+    if self.timer then
+        self.timer:update(dt)
+    end
 end
 
 function GameObject:draw()
+end
+
+function GameObject:destroy()
+    self.timer:clear()
+    if self.area.world:hasItem(self) then
+        self.area.world:remove(self)
+    end
 end

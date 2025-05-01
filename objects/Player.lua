@@ -104,3 +104,7 @@ function Player:draw()
     love.graphics.rectangle("line", self.x, self.y, self.w, self.h)
     love.graphics.setColor(1, 1, 1)
 end
+
+function Player:destroy()
+    Player.super.destroy(self)
+end

@@ -20,3 +20,7 @@ function Platform:draw()
     love.graphics.rectangle("fill", self.x, self.y, self.w, self.h)
     love.graphics.setColor(1, 1, 1)
 end
+
+function Platform:destroy()
+    Platform.super.destroy(self)
+end
